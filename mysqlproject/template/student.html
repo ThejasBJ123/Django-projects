@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student details</h1>
+    
+    <h1>Product Details</h1>
+
+    <div class="container">
+
+        {% for i in stud%}
+
+            <div class="card-content">
+                <h2>{{ i.name }}</h2>
+                <p><strong>Age:</strong> {{ i.age }}</p>
+                <p><strong>Place:</strong> {{ i.place }}</p>
+                <p><strong>Email:</strong> {{ i.email_ID }}</p>
+            </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

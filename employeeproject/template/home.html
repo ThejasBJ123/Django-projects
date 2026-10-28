@@ -88,26 +88,21 @@
 
 <body>
 
+
+
     <h1>Product Details</h1>
 
     <div class="container">
 
-        {% for i in prod %}
+        {% for i in stude %}
 
         <div class="card">
-
-            {% if i.image %}
-                <img src="{{ i.image.url }}" alt="{{ i.name }}">
-            {% else %}
-                <div class="no-image">No Image Available</div>
-            {% endif %}
 
             <div class="card-content">
 
                 <h2>{{ i.name }}</h2>
 
                 <p><strong>ID:</strong> {{ i.id }}</p>
-
                 <p><strong>Age:</strong> {{ i.age }}</p>
 
                 <p><strong>Place:</strong> {{ i.place }}</p>
