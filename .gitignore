@@ -1,0 +1,26 @@
+# Virtual Environments
+venv/
+work/
+env/
+.venv/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django database
+*.sqlite3
+db.sqlite3
+
+# Environment variables & secrets
+.env
+local_settings.py
+
+# IDE / Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log

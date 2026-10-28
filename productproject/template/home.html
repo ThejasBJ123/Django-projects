@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f8f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+        }
+
+        .card {
+            background-color: #dcedc8;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap:20px;
+        }
+
+        .container {
+            color: #2e7d32;
+            width: 300px;
+            min-height: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10%;
+            object-fit: cover;
+        }
+        .container:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgb(237, 236, 236);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Product Details</h1>
+
+    <div class="card">
+
+        {% for i in prod %}
+
+        <div class="container">
+
+            {% if i.image %}
+                <img src="{{ i.image.url }}" alt="{{ i.name }}">
+            {% endif %}
+
+            <h2>{{ i.name }}</h2>
+            <p>Brand: {{ i.brand }}</p>
+            <p>Material: {{ i.material }}</p>
+            <p>Price: {{ i.price }}</p>
+            <p>Description: {{ i.description }}</p>
+
+        </div>
+
+        {% empty %}
+            <p>No products available.</p>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

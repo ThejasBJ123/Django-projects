@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Cards</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        /* Grid Layout */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Product Card */
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Product Image */
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h2 {
+            color: #2563eb;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 14px;
+            margin: 10px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .salary {
+            color: #15803d;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .no-image {
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e2e8f0;
+            color: #64748b;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Product Details</h1>
+
+    <div class="container">
+
+        {% for i in prod %}
+
+        <div class="card">
+
+            {% if i.image %}
+                <img src="{{ i.image.url }}" alt="{{ i.name }}">
+            {% else %}
+                <div class="no-image">No Image Available</div>
+            {% endif %}
+
+            <div class="card-content">
+
+                <h2>{{ i.name }}</h2>
+
+                <p><strong>ID:</strong> {{ i.id }}</p>
+
+                <p><strong>Age:</strong> {{ i.age }}</p>
+
+                <p><strong>Place:</strong> {{ i.place }}</p>
+
+                <p><strong>Date of Birth:</strong>
+                    {{ i.dob|date:"d-m-Y" }}
+                </p>
+
+                <p><strong>Email:</strong> {{ i.email_ID }}</p>
+
+                <p><strong>Department:</strong> {{ i.department }}</p>
+
+                <p class="salary">
+                    Salary: &#8377;{{ i.salary }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No product records found.</p>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
