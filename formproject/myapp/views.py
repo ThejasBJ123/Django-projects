@@ -7,6 +7,7 @@ def formview(request):
     if request.method=="POST":
         f=StudentForm(request.POST)
         if f.is_valid():
+            f.save()
             return HttpResponse("submited has been successully record")
     d={'form':f}
     return render(request,'form.html',d)

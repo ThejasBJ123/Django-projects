@@ -8,4 +8,3 @@ class Student(models.Model):
     email=models.EmailField()
     dob=models.DateField()
     
-    

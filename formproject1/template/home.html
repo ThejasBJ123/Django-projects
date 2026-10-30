@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Feedback Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .form-box, .student-box {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #1c355e;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 11px;
+            margin-top: 7px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #2456a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163d7a;
+        }
+
+        .student-box p {
+            line-height: 1.6;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h1>Student Feedback Form</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Name</label>
+            {{ form.name }}
+
+            <label>Age</label>
+            {{ form.age }}
+
+            <label>Place</label>
+            {{ form.place }}
+
+            <label>Email ID</label>
+            {{ form.email }}
+
+            <label>Feedback</label>
+            {{ form.feedback }}
+
+            <button type="submit">Submit Feedback</button>
+
+        </form>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <h2>Student Details</h2>
+
+        {% for i in stud %}
+
+            <div class="student-box">
+
+                <h3>{{ i.name }}</h3>
+
+                <p><b>Age:</b> {{ i.age }}</p>
+
+                <p><b>Place:</b> {{ i.place }}</p>
+
+                <p><b>Email:</b> {{ i.email }}</p>
+
+                <p><b>Feedback:</b> {{ i.feedback }}</p>
+
+            </div>
+
+        {% empty %}
+
+            <p>No student records available.</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
