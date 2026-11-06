@@ -88,3 +88,15 @@ student.objects.all().order_by('name')
 ## 19)	Write a command to retrieve all the records sorted by name in descending order from the table
 student.objects.all().order_by('-name')
 
+
+
+>>> student.objects.create(name="sowmya", age=22, marks=47, place="bang")
+<student: sowmya>
+
+
+>>> student.objects.filter(name="sowmya").update(age=23)
+1
+>>> s=student.objects.filter(name="sowmya")
+>>> print(s)
+<QuerySet [<student: sowmya>]>
+
