@@ -12,8 +12,12 @@
         <fieldset>
             <legend>Registration Form</legend>
 
-           <form method="POST" action="{% url 'register' %}">
-            {% csrf_token %}
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+
+                {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                {% endif %}
 
                 <label>Username:</label>
                 <input type="text" name="username"
@@ -30,12 +34,6 @@
                 <label>Password:</label>
                 <input type="password" name="password"
                        placeholder="Enter password" required>
-
-                <br><br>
-
-                <label>Confirm Password:</label>
-                <input type="password" name="confirm_password"
-                       placeholder="Confirm password" required>
 
                 <br><br>
 
